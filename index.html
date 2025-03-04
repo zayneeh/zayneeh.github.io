@@ -10,15 +10,18 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffe6f2;
+            background-color: #f4f4f4;
             color: #333;
+            line-height: 1.6;
         }
         .container {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content {
             max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
         }
         .header {
             text-align: center;
@@ -30,10 +33,10 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
-            border: 4px solid #d63384;
+            border: 4px solid #555;
         }
-        h1 {
-            color: #d63384;
+        h1, h2 {
+            color: #333;
             margin-bottom: 10px;
         }
         .social-links {
@@ -43,35 +46,39 @@
             margin-top: 20px;
         }
         .social-links a {
-            color: #d63384;
+            color: #555;
             font-size: 30px;
             text-decoration: none;
             transition: color 0.3s ease;
         }
         .social-links a:hover {
-            color: #b0266c;
+            color: #222;
         }
         .section {
             margin-top: 30px;
-            border-top: 2px solid #f0f0f0;
+            border-top: 1px solid #ddd;
             padding-top: 20px;
         }
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 15px;
         }
         .project {
             background-color: #f9f9f9;
             padding: 15px;
             border-radius: 8px;
-            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+        .project h3 {
+            margin-bottom: 10px;
+            color: #333;
         }
         .resume-btn {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #d63384;
+            background-color: #555;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -79,20 +86,11 @@
             transition: background-color 0.3s ease;
         }
         .resume-btn:hover {
-            background-color: #b0266c;
-        }
-        .contact-form {
-            display: grid;
-            gap: 15px;
-        }
-        .contact-form input, 
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            background-color: #333;
         }
     </style>
+       
+      
 </head>
 <body>
     <div class="container">
