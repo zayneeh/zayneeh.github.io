@@ -126,7 +126,7 @@
     /* Projects Grid */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
     }
 
@@ -137,24 +137,11 @@
       border: 1px solid rgba(214, 51, 132, 0.2);
       box-shadow: 0 4px 6px rgba(214, 51, 132, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
     }
 
     .project:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 12px rgba(214, 51, 132, 0.2);
-    }
-
-    .project h3 {
-      font-size: 1.1em;
-      margin-bottom: 12px;
-    }
-
-    .project p {
-      font-size: 0.95em;
-      flex-grow: 1;
     }
 
     .project a {
@@ -163,6 +150,52 @@
     }
 
     .project a:hover {
+      text-decoration: underline;
+    }
+
+    /* Publications Section */
+    .publications-grid {
+      display: grid;
+      gap: 15px;
+    }
+
+    .publication {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #d63384;
+      transition: transform 0.3s ease;
+    }
+
+    .publication:hover {
+      transform: translateX(5px);
+    }
+
+    .publication h3 {
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+
+    .publication .pub-authors {
+      color: #999;
+      font-size: 0.9em;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+
+    .publication .pub-venue {
+      color: #b0b0b0;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+
+    .publication a {
+      color: #d63384;
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+
+    .publication a:hover {
       text-decoration: underline;
     }
 
@@ -199,8 +232,8 @@
     /* Articles Section */
     .articles-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
     .article-card {
@@ -209,6 +242,8 @@
       border: 1px solid rgba(214, 51, 132, 0.2);
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .article-card:hover {
@@ -218,32 +253,37 @@
 
     .article-preview {
       width: 100%;
-      height: 200px;
+      height: 250px;
       object-fit: cover;
       background-color: #2a2a2a;
     }
 
     .article-content {
-      padding: 20px;
+      padding: 18px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .article-meta {
       display: flex;
       gap: 15px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       font-size: 0.85em;
       color: #999;
     }
 
     .article-card h3 {
-      margin-bottom: 12px;
-      font-size: 1.3em;
+      margin-bottom: 10px;
+      font-size: 1.1em;
     }
 
     .article-card p {
       color: #b0b0b0;
       margin-bottom: 15px;
-      line-height: 1.6;
+      line-height: 1.5;
+      font-size: 0.9em;
+      flex-grow: 1;
     }
 
     .article-card a {
@@ -252,6 +292,7 @@
       font-weight: bold;
       display: inline-block;
       transition: color 0.3s ease;
+      font-size: 0.9em;
     }
 
     .article-card a:hover {
@@ -294,6 +335,20 @@
       .projects-grid {
         grid-template-columns: 1fr;
       }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-post {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+
+      .blog-date {
+        min-width: auto;
+      }
     }
   </style>
 </head>
@@ -302,6 +357,7 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#articles">Articles</a></li>
       <li><a href="#resume">Resume</a></li>
@@ -332,17 +388,17 @@
       </div>
 
       <section id="about" class="section">
-  <h2>About Me</h2>
-  <p>
-    I am a machine learning engineer specializing in NLP and speech technologies. I have experience working with AI consulting companies, where I design AI-driven solutions that support decision-making and automation across different industries.
-  </p>
-  <p>
-    With a background in chemical engineering, I also explore how machine learning helps us understand molecular systems in materials. My research explores this through enzymes and proteins, and more recently through polymers, where I use ML to study structure–property relationships and material behavior.
-  </p>
-    Beyond technical work, I’m a very curious person so I enjoy exploring connections between AI, science, food, and how cooking intersects and I document my thoughts and discoveries on Medium.
-  </p>
-</section>
-
+        <h2>About Me</h2>
+        <p>
+          I am a machine learning engineer specializing in NLP and speech technologies. I have experience working with AI consulting companies, where I design AI-driven solutions that support decision-making and automation across different industries.
+        </p>
+        <p>
+          With a background in chemical engineering, I also explore how machine learning helps us understand molecular systems in materials. My research explores this through enzymes and proteins, and more recently through polymers, where I use ML to study structure–property relationships and material behavior.
+        </p>
+        <p>
+          Beyond technical work, I'm a very curious person so I enjoy exploring connections between AI, science, food, and how cooking intersects and I document my thoughts and discoveries on Medium.
+        </p>
+      </section>
    
       <section id="projects" class="section">
         <h2>Projects</h2>
@@ -405,7 +461,25 @@
             </p>
           </div>
 
+        </div>
+      </section>
 
+      <section id="publications" class="section">
+        <h2>Publications</h2>
+        <div class="publications-grid">
+          
+          <div class="publication">
+            <h3>Machine Learning Models in Polymer Informatics: A Guide on the Model to Use for Polymer Research</h3>
+          
+            <p class="pub-venue">Manuscript in preparation</p>
+          </div>
+
+
+          <div class="publication">
+            <h3>Evaluating Retrieval-Augmented Generation for Medication Question Answering on Nigerian Drug Labels in Yorùbá</h3>
+            <p class="pub-authors">Zainab Tairu, Adebesin Aramide</p>
+            <p class="pub-venue">EACL, 2026. In review</p>
+          </div>
 
         </div>
       </section>
@@ -413,7 +487,6 @@
       <section id="blog" class="section">
         <h2>Blog</h2>
         <div class="blog-posts">
-          
 
           <div class="blog-post">
             <div class="blog-date">November 2025</div>
@@ -427,7 +500,7 @@
 
           <div class="blog-post">
             <div class="blog-date">August 2025</div>
-            <div class="blog-content">Attended Deep Learning Indaba and Presented my posters on thermostable lipase and Using VlMs to aid medication independence with visually impaired individuals.</div>
+            <div class="blog-content">Attended Deep Learning Indaba and Presented my posters on thermostable lipase and Using VLMs to aid medication independence with visually impaired individuals.</div>
           </div>
 
           <div class="blog-post">
@@ -443,20 +516,19 @@
         <div class="articles-grid">
           
           <div class="article-card">
-            <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*rga89V3PD8QukOWRIphBZg.png" alt="NLP Article" class="article-preview">
+            <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*rga89V3PD8QukOWRIphBZg.png" alt="MOF Discovery Article" class="article-preview">
             <div class="article-content">
               <div class="article-meta">
                 <span>⏱️ 6 min read</span>
               </div>
               <h3>How Artificial Intelligence is Influencing MOF Discovery</h3>
               <p>An exploration of how machine learning is transforming the way we design MOFs</p>
-              <a href="https://medium.com/@tairuzainab/how-artificial-intelligence-is-influencing-mof-discovery-ae3ea300ce70">Read More →</a>
+              <a href="https://medium.com/@tairuzainab/how-artificial-intelligence-is-influencing-mof-discovery-ae3ea300ce70" target="_blank">Read More →</a>
             </div>
           </div>
 
-  
-    </div>
-  </div>
+        </div>
+      </section>
 
       <section id="resume" class="section">
         <h2>Resume</h2>
