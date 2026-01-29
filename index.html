@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zainab Tairu Personal Website</title>
+  <title>Zainab Tairu Website</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     * {
@@ -60,10 +60,17 @@
       margin: 0 auto;
     }
 
+    /* Header section with side-by-side layout */
     .header {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 40px;
       margin-bottom: 50px;
       padding: 40px 20px;
+    }
+
+    .header-left {
+      flex-shrink: 0;
     }
 
     .profile-pic {
@@ -71,37 +78,27 @@
       height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 20px;
       border: 4px solid #d63384;
     }
 
-    h1 {
+    .header-right {
+      flex: 1;
+    }
+
+    .header-right h1 {
       color: #d63384;
       margin-bottom: 10px;
       font-size: 2.5em;
     }
 
-    h2 {
-      color: #d63384;
-      margin-bottom: 20px;
-      font-size: 2em;
-      border-bottom: 3px solid rgba(214, 51, 132, 0.3);
-      padding-bottom: 10px;
-    }
-
-    h3 {
-      color: #d63384;
-      margin-bottom: 10px;
-    }
-
-    .header p {
+    .header-right .tagline {
       color: #e0e0e0;
       font-size: 1.2em;
+      margin-bottom: 20px;
     }
 
     .social-links {
       display: flex;
-      justify-content: center;
       gap: 20px;
       margin-top: 20px;
     }
@@ -118,9 +115,27 @@
       transform: scale(1.1);
     }
 
+    h2 {
+      color: #d63384;
+      margin-bottom: 20px;
+      font-size: 2em;
+      border-bottom: 3px solid rgba(214, 51, 132, 0.3);
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      color: #d63384;
+      margin-bottom: 10px;
+    }
+
     .section {
       margin: 60px 0;
       scroll-margin-top: 80px;
+    }
+
+    /* About section - now just the text */
+    #about p {
+      margin-bottom: 15px;
     }
 
     /* Projects Grid */
@@ -199,34 +214,40 @@
       text-decoration: underline;
     }
 
-    /* Blog Section */
+    /* Blog Section - improved spacing */
     .blog-posts {
       display: grid;
-      gap: 15px;
+      gap: 12px;
     }
 
     .blog-post {
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(214, 51, 132, 0.2);
+      padding: 12px;
+      background-color: #1e1e1e;
+      border-radius: 6px;
+      border-left: 3px solid #d63384;
       display: flex;
-      gap: 20px;
-      align-items: center;
+      gap: 15px;
+      align-items: flex-start;
+      transition: transform 0.2s ease;
     }
 
-    .blog-post:last-child {
-      border-bottom: none;
+    .blog-post:hover {
+      transform: translateX(5px);
     }
 
     .blog-date {
       color: #d63384;
       font-weight: bold;
-      min-width: 120px;
-      font-size: 0.95em;
+      min-width: 80px;
+      font-size: 0.9em;
+      flex-shrink: 0;
     }
 
     .blog-content {
       color: #e0e0e0;
       flex: 1;
+      font-size: 0.95em;
+      line-height: 1.5;
     }
 
     /* Articles Section */
@@ -317,6 +338,25 @@
       transform: scale(1.05);
     }
 
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      border-top: 2px solid rgba(214, 51, 132, 0.3);
+      background-color: #1a1a1a;
+    }
+
+    footer p {
+      color: #999;
+      font-size: 0.9em;
+      margin: 5px 0;
+    }
+
+    footer .heart {
+      color: #d63384;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       nav ul {
@@ -324,8 +364,18 @@
         font-size: 0.9em;
       }
 
-      h1 {
+      .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .header-right h1 {
         font-size: 2em;
+      }
+
+      .social-links {
+        justify-content: center;
       }
 
       h2 {
@@ -342,8 +392,7 @@
 
       .blog-post {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+        gap: 8px;
       }
 
       .blog-date {
@@ -368,22 +417,26 @@
     <div class="content">
 
       <div class="header">
-        <img src="profile.jpg" alt="Zainab's Picture" class="profile-pic">
-        <h1>Hey. Hi. I am Zainab.</h1>
-        <p>Machine Learning Engineer | NLP Engineer | Polymer informatics | Ethical AI</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/zainab-tairu" target="_blank" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/zayneeh" target="_blank" title="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://medium.com/@tairuzainab" target="_blank" title="Medium">
-            <i class="fab fa-medium"></i>
-          </a>
-          <a href="mailto:tairuzainab5@email.com" title="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
+        <div class="header-left">
+          <img src="profile.jpg" alt="Zainab's Picture" class="profile-pic">
+        </div>
+        <div class="header-right">
+          <h1>Hey, I am Zainab Tairu.</h1>
+          <p class="tagline">Machine Learning Engineer | NLP Engineer | Polymer informatics | Ethical AI</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/zainab-tairu" target="_blank" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/zayneeh" target="_blank" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://medium.com/@tairuzainab" target="_blank" title="Medium">
+              <i class="fab fa-medium"></i>
+            </a>
+            <a href="mailto:tairuzainab5@email.com" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -470,15 +523,13 @@
           
           <div class="publication">
             <h3>From SMILES to Agents: A Decade of Evolution in Language Models for Polymer Discovery</h3>
-          
             <p class="pub-venue">Paper in preparation</p>
           </div>
-
 
           <div class="publication">
             <h3>Evaluating Retrieval-Augmented Generation for Medication Question Answering on Nigerian Drug Labels in Yorùbá</h3>
             <p class="pub-authors">Adebesin Aramide, Zainab Tairu</p>
-            <p class="pub-venue">LoResLM @ EACL 2026 </p>
+            <p class="pub-venue">LoResLM @ EACL 2026</p>
           </div>
 
         </div>
@@ -488,29 +539,29 @@
         <h2>Blog</h2>
         <div class="blog-posts">
 
-           <div class="blog-post">
+          <div class="blog-post">
             <div class="blog-date">Jan 2026</div>
             <div class="blog-content">Our paper <em>Evaluating Retrieval-Augmented Generation for Medication Question Answering on Nigerian Drug Labels in Yorùbá</em> was accepted to LoResLM @ EACL 2026.</div>
           </div>
 
           <div class="blog-post">
-            <div class="blog-date">November 2025</div>
-            <div class="blog-content">I was appointed as the Lead of DSN OAU.</div>
+            <div class="blog-date">Nov 2025</div>
+            <div class="blog-content">I was appointed as the Lead of the <a href="https://datasciencenigeria.org/" target="_blank">DSN</a> OAU chapter, where I coordinate community activities, mentor members, and drive data science initiatives within the university.</div>
           </div>
 
           <div class="blog-post">
-            <div class="blog-date">October 2025</div>
-            <div class="blog-content">I joined NNPC Upstream Investment Management as an intern.</div>
+            <div class="blog-date">Oct 2025</div>
+            <div class="blog-content">Started my internship at <a href="https://www.nnpcgroup.com/" target="_blank">NNPC</a> Upstream Investment Management, gaining hands-on experience in upstream operations, data analysis, and strategic investment planning in the energy sector</div>
           </div>
 
           <div class="blog-post">
-            <div class="blog-date">August 2025</div>
-            <div class="blog-content">Attended Deep Learning Indaba and Presented my posters on thermostable lipase and Using VLMs to aid medication independence with visually impaired individuals.</div>
+            <div class="blog-date">Aug 2025</div>
+            <div class="blog-content">At <a href="https://deeplearningindaba.com/" target="_blank">Deep Learning Indaba 2025</a>, I presented two research posters: one on <em>AI-guided design of thermostable lipases</em>, focusing on sustainable enzyme engineering, and another on <em>Dual AI architectures for accessible medication management</em> which compares OCR-LLM and VLM approaches to aid visually impaired individuals</div>
           </div>
 
           <div class="blog-post">
-            <div class="blog-date">July 2025</div>
-            <div class="blog-content">Joined CoMMa Lab at University of Texas Tyler as an Undergrad Intern.</div>
+            <div class="blog-date">Jul 2025</div>
+            <div class="blog-content">Joined <a href="https://comma-wang-lab.github.io/" target="_blank">CoMMa Lab </a>at the University of Texas at Tyler as an undergraduate research intern, contributing to ongoing projects and gaining experience in machine learning applications for molecular modelling.</div>
           </div>
 
         </div>
@@ -546,6 +597,10 @@
 
     </div>
   </div>
+
+  <footer>
+    <p>© 2026 Zainab Tairu. Last updated: January 2026</p>
+  </footer>
 
   <script>
     // Smooth scrolling for navigation links
