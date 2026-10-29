@@ -6,26 +6,36 @@
   <title>Zainab Tairu Website</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23d63384'/><text x='50' y='50' font-size='40' fill='white' text-anchor='middle' dominant-baseline='central' font-family='Arial, sans-serif' font-weight='bold'>ZT</text></svg>">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
+  <nav aria-label="Sections">
     <ul>
+      <li><a href="#top">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#research">Research Interest</a></li>
       <li><a href="#publications">Publications</a></li>
-
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#articles">Articles</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#resume">Resume</a></li>
     </ul>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Switch theme">
+      <i class="fas fa-sun" aria-hidden="true"></i>
+    </button>
   </nav>
 
   <div class="container">
     <div class="content">
 
-      <div class="header">
+      <div class="header" id="top">
         <div class="header-left">
           <img src="profile.jpg" alt="Zainab's Picture" class="profile-pic">
         </div>
@@ -33,64 +43,124 @@
           <h1>Hey, I am Zainab Tairu.</h1>
           <p class="tagline">Machine Learning Engineer | NLP Engineer | Polymer informatics | Ethical AI</p>
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/zainab-tairu" target="_blank" title="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/zayneeh" target="_blank" title="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://medium.com/@tairuzainab" target="_blank" title="Medium">
-              <i class="fab fa-medium"></i>
-            </a>
-            <a href="mailto:tairuzainab5@email.com" title="Email">
-              <i class="fas fa-envelope"></i>
-            </a>
+            <a href="https://www.linkedin.com/in/zainab-tairu" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/zayneeh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://medium.com/@tairuzainab" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
+            <a href="mailto:tairuzainab5@email.com" title="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
       </div>
 
       <section id="about" class="section">
         <h2>About Me</h2>
-        <p>I’m a machine learning engineer focused on NLP and speech technologies. I've design AI-driven systems that support decision-making and automation across industries.
-        </p>
-        <p>
-          With a background in chemical engineering, I also explore how machine learning helps understand molecular systems in materials. My research explores this through enzymes and more recently through polymers, where I use ML to study structure–property relationships and material behavior.
-        </p>
-        <p>
-          Beyond technical work, I'm a very curious person so I enjoy exploring connections between AI, science, and food then I document my thoughts and discoveries on them on Medium.
-        </p>
+        <p>I’m a machine learning engineer focused on NLP and speech technologies. I design AI-driven systems that support decision-making and automation across industries.</p>
+        <p>With a background in chemical engineering, I also explore how machine learning helps understand molecular systems in materials. My research explores this through enzymes and more recently through polymers, where I use ML to study structure–property relationships and material behavior.</p>
+        <p>Beyond technical work, I'm a very curious person, so I enjoy exploring connections between AI, science, and food, and I document my thoughts and discoveries on Medium.</p>
       </section>
-
-     <section id="research" class="section">
-        <h2>Current Research Explorations</h2>
-        <div class="research-card">
-          <ul style="list-style: none; padding: 0;">
-            <li style="padding-left: 25px; position: relative;">
-              <span style="position: absolute; left: 0; color: #d63384; font-weight: bold;">•</span>
-              <strong>Evaluation of Lithium-Ion Battery Electrolytes and Degradation Mechanisms</strong>
-              <p style="margin-top: 8px; color: #b0b0b0;">
-                Investigating electrolyte performance and degradation pathways in lithium-ion batteries to identify factors affecting battery longevity and efficiency.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-      
- 
 
       <section id="publications" class="section">
         <h2>Publications</h2>
-        <div class="publications-grid">
-          
-          <div class="publication">
-            <h3>From SMILES to Agents: A Decade of Evolution in Language Models for Polymer Discovery</h3>
-            <p class="pub-venue">Paper in preparation</p>
+        <div class="pubs">
+        <div class="pub-group">
+          <div class="pub-venue">
+            <div class="pub-venue-name">In preparation</div>
+          </div>
+          <div class="pub-items">
+            <article class="pub">
+              <h3>A Review of Methodologies in Polymer Informatics with a Practical Benchmark</h3>
+              <p class="pub-authors"><span class="me">Zainab Tairu</span>, Amberbir Alemayoh, Ning Wang, Zhixin Pan</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="pub-group">
+          <div class="pub-venue">
+            <div class="pub-venue-name">WiML @ NeurIPS 2026</div>
+            <div class="pub-status" data-state="accepted">Accepted</div>
+          </div>
+          <div class="pub-items">
+            <article class="pub">
+              <h3>NoiseLens: Evaluating Denoising for Diagnostic Information Preservation in Breast Ultrasound Imaging</h3>
+              <p class="pub-authors"><span class="me">Zainab Tairu</span>, Aramide Adebesin</p>
+            </article>
+            <article class="pub">
+              <h3>On the Theoretical Limits of Post-Hoc Explanation Faithfulness</h3>
+              <p class="pub-authors">Babatunde Ajala Abdulkareem, <span class="me">Zainab Tairu</span>, Ayomide Emmanuel Oyedare</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="pub-group">
+          <div class="pub-venue">
+            <div class="pub-venue-name">LoResLM @ EACL 2026</div>
+            <div class="pub-status" data-state="published">Published</div>
+          </div>
+          <div class="pub-items">
+            <article class="pub">
+              <h3><a href="https://aclanthology.org/2026.loreslm-1.8/" target="_blank">Evaluating Retrieval-Augmented Generation for Medication Question Answering on Nigerian Drug Labels in Yorùbá</a></h3>
+              <p class="pub-authors">Aramide Adebesin, <span class="me">Zainab Tairu</span></p>
+              <p class="pub-links">
+                <a href="https://aclanthology.org/2026.loreslm-1.8/" target="_blank">Paper</a>
+                <a href="https://aclanthology.org/2026.loreslm-1.8.pdf" target="_blank">PDF</a>
+              </p>
+            </article>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section slider loop">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <div class="slider-nav">
+            <button type="button" data-dir="-1" aria-label="Previous">&#8249;</button>
+            <button type="button" data-dir="1" aria-label="Next">&#8250;</button>
+          </div>
+        </div>
+        <div class="track">
+
+          <div class="slide">
+            <h3>Polymer Property Prediction with Polymer Representations</h3>
+            <p>Predicting polymer properties from different ways of representing polymers, built as an interactive notebook.</p>
+            <div class="slide-links"><a href="https://colab.research.google.com/drive/1Dza-WVx2HtzeQ4xs114Tf7iUCJPqHBOA?usp=sharing" target="_blank">Colab notebook</a></div>
           </div>
 
-          <div class="publication">
-            <h3>Evaluating Retrieval-Augmented Generation for Medication Question Answering on Nigerian Drug Labels in Yorùbá</h3>
-            <p class="pub-authors">Adebesin Aramide, Zainab Tairu</p>
-            <p class="pub-venue">LoResLM@ EACL 2026</p>
+          <div class="slide">
+            <h3>Let Me Cook</h3>
+            <p>Initially designed to help users discover Nigerian recipes based on available ingredients. Now extended into a Food Archive for Nigerian meals, a growing collection of recipes and culinary knowledge.</p>
+            <div class="slide-links">
+              <a href="https://github.com/zayneeh/LET-ME-COOK" target="_blank">GitHub</a>
+              <a href="https://zeesfoodarchivee.netlify.app/" target="_blank">Food Archive</a>
+            </div>
+          </div>
+
+          <div class="slide">
+            <h3>Risk Analyzer</h3>
+            <p>A local tool that helps legal professionals and EB-1A petitioners find weaknesses in immigration petition drafts before submission, simulating a USCIS adjudicator's feedback with LLMs.</p>
+            <div class="slide-links"><a href="https://github.com/zayneeh/Risk-Analyzer" target="_blank">GitHub</a></div>
+          </div>
+
+          <div class="slide">
+            <h3>Enzyme Engineering</h3>
+            <p>Used transformer-based protein models and the TOMER framework to design thermostable variants of Bacillus sp. lipase with predicted optimal activity around 75°C.</p>
+          </div>
+
+          <div class="slide">
+            <h3>UlcerMate</h3>
+            <p>An AI-powered app for logging meals, pain levels, symptoms, and medications, building a personal health record that drives tailored ulcer management insights.</p>
+            <div class="slide-links"><a href="https://github.com/Adebesin-Aramide/Ulcer_Management_System" target="_blank">GitHub</a></div>
+          </div>
+
+          <div class="slide">
+            <h3>MediVoice</h3>
+            <p>An AI-powered healthcare voice assistant (collaborative project) that streamlines patient-doctor communication through speech technology.</p>
+            <div class="slide-links"><a href="https://github.com/Adebesin-Aramide/Medivoice" target="_blank">GitHub</a></div>
+          </div>
+
+          <div class="slide">
+            <h3>Malaria Blood Smear Classifier</h3>
+            <p>A binary classification model that detects infected vs. uninfected blood smear images, contributing to early malaria diagnosis tools.</p>
+            <div class="slide-links"><a href="https://huggingface.co/spaces/Zayneeh/Malaria_Pred" target="_blank">Hugging Face demo</a></div>
           </div>
 
         </div>
@@ -98,164 +168,283 @@
 
       <section id="blog" class="section">
         <h2>Blog</h2>
-        <div class="blog-posts">
 
-          <div class="blog-post">
-            <div class="blog-date">Jan 2026</div>
-            <div class="blog-content">Our paper <em>Evaluating Retrieval-Augmented Generation for Medication Question Answering on Nigerian Drug Labels in Yorùbá</em> was accepted to LoResLM @ EACL 2026.</div>
+        <div class="ticker" id="ticker">
+          <div class="ticker-date" aria-hidden="true">
+            <span class="ticker-month" id="tk-month"></span>
+            <span class="ticker-year" id="tk-year"></span>
           </div>
+          <div class="ticker-list">
+            <div class="blog-group">
+              <div class="blog-date">October 2026</div>
+              <ul>
+                <li>Awarded over <strong>$2,000</strong> in travel funding from <a href="https://www.wiml.org/" target="_blank">Women in Machine Learning (WiML)</a> to attend NeurIPS 2026 in Sydney, Australia, and present my research poster.</li>
+                <li>Earned my <strong>Basic Offshore Safety Induction and Emergency Training (BOSIET)</strong> certification.</li>
+              </ul>
+            </div>
 
-          <div class="blog-post">
-            <div class="blog-date">Nov 2025</div>
-            <div class="blog-content">I was appointed as the Lead of the <a href="https://datasciencenigeria.org/" target="_blank">DSN</a> OAU chapter, where I coordinate community activities, mentor members, and drive data science initiatives within the university.</div>
-          </div>
+            <div class="blog-group">
+              <div class="blog-date">September 2026</div>
+              <ul>
+                <li>Visited an offshore oil rig and observed an upper completion operation, gaining firsthand insight into well completion activities and offshore production operations.</li>
+              </ul>
+            </div>
 
-          <div class="blog-post">
-            <div class="blog-date">Oct 2025</div>
-            <div class="blog-content">Started my internship at <a href="https://www.nnpcgroup.com/" target="_blank">NNPC</a> Upstream Investment Management, gaining hands-on experience in upstream operations, data analysis, and strategic investment planning in the energy sector</div>
-          </div>
+            <div class="blog-group">
+              <div class="blog-date">August 2026</div>
+              <ul>
+                <li>Attended the <strong>Nigeria Annual International Conference and Exhibition (NAICE 2026)</strong>.</li>
+                <li>Volunteered at and attended <a href="https://deeplearningindaba.com/" target="_blank">Deep Learning Indaba 2026</a>.</li>
+              </ul>
+            </div>
 
-          <div class="blog-post">
-            <div class="blog-date">Aug 2025</div>
-            <div class="blog-content">At <a href="https://deeplearningindaba.com/" target="_blank">Deep Learning Indaba 2025</a>, I presented two research posters: one on <em>AI-guided design of thermostable lipases</em>, focusing on sustainable enzyme engineering, and another on <em>Dual AI architectures for accessible medication management</em> which compares OCR-LLM and VLM approaches to aid visually impaired individuals</div>
-          </div>
+            <div class="blog-group">
+              <div class="blog-date">June 2026</div>
+              <ul>
+                <li>Visited Heirs Energies (Agbada 2), NAG, and AGG, to gain exposure to upstream facilities, operational activities, and energy industry practices.</li>
+              </ul>
+            </div>
 
-          <div class="blog-post">
-            <div class="blog-date">Jul 2025</div>
-            <div class="blog-content">Joined <a href="https://comma-wang-lab.github.io/" target="_blank">CoMMa Lab </a>at the University of Texas at Tyler as an undergraduate research intern, contributing to ongoing projects and gaining experience in machine learning applications for molecular modelling.</div>
-          </div>
+            <div class="blog-group">
+              <div class="blog-date">May 2026</div>
+              <ul>
+                <li>Joined <a href="https://www.nnpcgroup.com/" target="_blank">NNPC</a> Upstream Investment Management Services as a <strong>Process Intern</strong>.</li>
+              </ul>
+            </div>
 
-        </div>
-      </section>
+            <div class="blog-group">
+              <div class="blog-date">April 2026</div>
+              <ul>
+                <li>Joined <a href="https://karimi.ai/" target="_blank">Karimi Talent</a> to support research and information management.</li>
+              </ul>
+            </div>
 
-      <section id="articles" class="section">
-        <h2>Articles</h2>
-        <div class="articles-grid">
-          
-          <div class="article-card">
-            <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*rga89V3PD8QukOWRIphBZg.png" alt="MOF Discovery Article" class="article-preview">
-            <div class="article-content">
-              <div class="article-meta">
-                <span>⏱️ 6 min read</span>
-              </div>
-              <h3>How Artificial Intelligence is Influencing MOF Discovery</h3>
-              <p>An exploration of how machine learning is transforming the way we design MOFs</p>
-              <a href="https://medium.com/@tairuzainab/how-artificial-intelligence-is-influencing-mof-discovery-ae3ea300ce70" target="_blank">Read More →</a>
+            <div class="blog-group">
+              <div class="blog-date">February 2026</div>
+              <ul>
+                <li>Presented our paper, <a href="https://aclanthology.org/2026.loreslm-1.8/" target="_blank"><em>Evaluating Retrieval-Augmented Generation for Medication Question Answering on Nigerian Drug Labels in Yorùbá</em></a>, at the <strong>LoResLM workshop at EACL 2026</strong>.</li>
+              </ul>
+            </div>
+
+            <div class="blog-group">
+              <div class="blog-date">January 2026</div>
+              <ul>
+                <li>Our paper, <a href="https://aclanthology.org/2026.loreslm-1.8/" target="_blank"><em>Evaluating Retrieval-Augmented Generation for Medication Question Answering on Nigerian Drug Labels in Yorùbá</em></a>, was accepted to the <strong>LoResLM workshop at EACL 2026</strong>.</li>
+              </ul>
+            </div>
+
+            <div class="blog-group">
+              <div class="blog-date">November 2025</div>
+              <ul>
+                <li>Appointed Lead of the <a href="https://datasciencenigeria.org/" target="_blank">Data Science Nigeria</a> OAU chapter, where I coordinate community activities, mentor members, and promote data science engagement and initiatives within the university.</li>
+              </ul>
+            </div>
+
+            <div class="blog-group">
+              <div class="blog-date">October 2025</div>
+              <ul>
+                <li>Joined <a href="https://www.nnpcgroup.com/" target="_blank">NNPC</a> Upstream Investment Management Services as an intern, gaining practical exposure to upstream operations, data analysis, and strategic investment planning in the energy sector.</li>
+              </ul>
             </div>
           </div>
-
         </div>
       </section>
-  
-      <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="projects-grid">
 
-          <div class="project">
-            <h3>LET ME COOK</h3>
-            <p>Initially designed to help users discover Nigerian recipes based on available ingredients, simplifying meal planning with tailored suggestions. The project has now been extended into a <strong>Food Archive</strong> for Nigerian meals, serving as a growing collection of recipes and culinary knowledge.</p>
-            <p>
-              <a href="https://github.com/zayneeh/LET-ME-COOK" target="_blank">🔗 View Project</a> |
-              <a href="https://zeesfoodarchivee.netlify.app/" target="_blank">🥘 Explore Food Archive</a>
-            </p>
+      <section id="articles" class="section slider">
+        <div class="section-head">
+          <h2>Articles</h2>
+          <div class="slider-nav">
+            <button type="button" data-dir="-1" aria-label="Previous">&#8249;</button>
+            <button type="button" data-dir="1" aria-label="Next">&#8250;</button>
           </div>
-
-          <div class="project">
-            <h3>Job Agent</h3>
-            <p>An agent that automatically applies to jobs for you based on your resume.</p>
-            <p>
-              <a href="https://github.com/zayneeh/Job-app" target="_blank">🔗 View Project</a> 
-            </p>
+        </div>
+        <div class="track">
+          <div class="slide article">
+            <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*rga89V3PD8QukOWRIphBZg.png" alt="MOF Discovery Article">
+            <div class="slide-meta">Medium, 6 min read</div>
+            <h3>How Artificial Intelligence is Influencing MOF Discovery</h3>
+            <p>An exploration of how machine learning is transforming the way we design MOFs.</p>
+            <div class="slide-links"><a href="https://medium.com/@tairuzainab/how-artificial-intelligence-is-influencing-mof-discovery-ae3ea300ce70" target="_blank">Read on Medium</a></div>
           </div>
-
-          <div class="project">
-            <h3>Risk Analyzer</h3>
-            <p>A local tool that helps legal professionals and EB-1A petitioners identify weaknesses in their immigration petition drafts before submission. It simulates a USCIS adjudicator's feedback using LLMs.</p>
-            <p>
-              <a href="https://github.com/zayneeh/Risk-Analyzer" target="_blank">🔗 View Project</a>
-            </p>
-          </div>
-
-          <div class="project">
-            <h3>Enzyme Engineering</h3>
-            <p>Used transformer-based protein models and the TOMER framework to design thermostable variants of Bacillus sp. lipase with predicted optimal activity around 75°C.</p>
-            <p>
-              <a href="#" target="_blank">🔗 View Project</a>
-            </p>
-          </div>
-
-          <div class="project">
-            <h3>UlcerMate</h3>
-            <p>An AI-powered app that enables users to log meals, pain levels, symptoms, and medications, creating a personalized health record. Uses data to provide tailored ulcer management insights.</p>
-            <p>
-              <a href="https://github.com/Adebesin-Aramide/Ulcer_Management_System" target="_blank">🔗 View Project</a>
-            </p>
-          </div>
-
-          <div class="project">
-            <h3>MediVoice</h3>
-            <p>AI-powered healthcare voice assistant app (collaborative project) designed to streamline patient-doctor communication through speech technology.</p>
-            <p>
-              <a href="https://github.com/Adebesin-Aramide/Medivoice" target="_blank">🔗 View Project</a>
-            </p>
-          </div>
-
-          <div class="project">
-            <h3>Malaria Blood Smear Classifier</h3>
-            <p>Built a binary classification model to detect infected vs. uninfected blood smear images, contributing to early malaria diagnosis tools.</p>
-            <p>
-              <a href="#" target="_blank">🔗 View Project</a>
-            </p>
-          </div>
-
         </div>
       </section>
 
       <section id="resume" class="section">
         <h2>Resume</h2>
-        <p>Download my resume to learn more about my professional experience and qualifications.</p>
-        <div style="margin-top: 20px;">
-          <a href="resumes/Industry.pdf" class="resume-btn" target="_blank">Resume</a>
-        </div>
+        <p class="resume-text">Download my resume to learn more about my professional experience and qualifications.</p>
+        <a href="resumes/Industry.pdf" class="resume-btn" target="_blank">Resume</a>
       </section>
 
     </div>
   </div>
 
   <footer>
-    <p>© 2026 Zainab Tairu. Last updated: January 2026</p>
+    <p>© 2026 Zainab Tairu. Last updated: October 2026</p>
   </footer>
 
   <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
+    // ---- Light / dark toggle ----
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    function paintToggle() {
+      const light = root.getAttribute('data-theme') === 'light';
+      toggle.querySelector('i').className = light ? 'fas fa-moon' : 'fas fa-sun';
+      toggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+    }
+    toggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paintToggle();
+    });
+    paintToggle();
+
+    // ---- Nav: highlight the section you're in ----
+    const navList = document.querySelector('nav ul');
+    const navLinks = [...document.querySelectorAll('nav a')];
+    const targets = navLinks.map(a => document.querySelector(a.getAttribute('href')));
+    let ticking = false;
+
+    function setActive() {
+      ticking = false;
+      const line = 56 + 80; // nav height + a little breathing room
+      let idx = 0;
+      targets.forEach((el, i) => { if (el.getBoundingClientRect().top <= line) idx = i; });
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) idx = targets.length - 1;
+
+      navLinks.forEach((a, i) => {
+        a.classList.toggle('active', i === idx);
+        if (i === idx) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
       });
+      const a = navLinks[idx];
+      navList.scrollTo({ left: a.offsetLeft - navList.clientWidth / 2 + a.offsetWidth / 2, behavior: 'smooth' });
+    }
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(setActive); } }, { passive: true });
+    window.addEventListener('resize', setActive);
+    setActive();
+
+
+    // ---- Blog: keep the date pinned just under the pinned "Blog" heading ----
+    (function () {
+      const h = document.querySelector('#blog > h2');
+      const set = () => document.documentElement.style.setProperty('--h2h', h.offsetHeight + 'px');
+      set(); window.addEventListener('resize', set);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(set);
+    })();
+
+    // ---- Blog: big date flips as you scroll through the months ----
+    (function () {
+      const groups = [...document.querySelectorAll('#ticker .blog-group')];
+      const mEl = document.getElementById('tk-month');
+      const yEl = document.getElementById('tk-year');
+      let shown = null, busy = false;
+      function show(g) {
+        if (g === shown) return;
+        shown = g;
+        const [mo, yr] = g.querySelector('.blog-date').textContent.trim().split(/\s+/);
+        mEl.textContent = mo; yEl.textContent = yr;
+        [mEl, yEl].forEach(e => { e.classList.remove('roll'); void e.offsetWidth; e.classList.add('roll'); });
+      }
+      function update() {
+        busy = false;
+        const focus = window.innerHeight * 0.45;
+        let cur = 0;
+        groups.forEach((g, i) => { if (g.getBoundingClientRect().top <= focus) cur = i; });
+        groups.forEach((g, i) => g.classList.toggle('current', i === cur));
+        show(groups[cur]);
+      }
+      window.addEventListener('scroll', () => { if (!busy) { busy = true; requestAnimationFrame(update); } }, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+
+    // ---- Side-scrolling rows ----
+    document.querySelectorAll('.slider:not(.loop)').forEach(slider => {
+      const track = slider.querySelector('.track');
+      const nav = slider.querySelector('.slider-nav');
+      const prev = nav.querySelector('[data-dir="-1"]');
+      const next = nav.querySelector('[data-dir="1"]');
+      const gap = () => parseFloat(getComputedStyle(track).columnGap) || 0;
+      const step = () => track.querySelector('.slide').getBoundingClientRect().width + gap();
+      const update = () => {
+        nav.hidden = track.scrollWidth <= track.clientWidth + 2;
+        prev.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      };
+      [prev, next].forEach(b => b.addEventListener('click', () =>
+        track.scrollBy({ left: step() * Number(b.dataset.dir), behavior: 'smooth' })));
+      track.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
     });
 
-    // Highlight active navigation item on scroll
-    window.addEventListener('scroll', () => {
-      let current = '';
-      document.querySelectorAll('.section').forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 100) {
-          current = section.getAttribute('id');
+    // ---- Projects: endless carousel, centred card grows ----
+    document.querySelectorAll('.slider.loop').forEach(slider => {
+      const track = slider.querySelector('.track');
+      const originals = [...track.children];
+      const n = originals.length;
+      const copies = () => originals.map(c => {
+        const k = c.cloneNode(true);
+        k.setAttribute('aria-hidden', 'true');
+        k.querySelectorAll('a').forEach(a => a.tabIndex = -1);
+        return k;
+      });
+      track.prepend(...copies(), ...copies());   // 2 sets before
+      track.append(...copies(), ...copies());    // 2 sets after
+      const cards = [...track.children];
+      const first = 2 * n;                       // first real card
+
+      const gap = () => parseFloat(getComputedStyle(track).columnGap) || 0;
+      const step = () => cards[0].offsetWidth + gap();
+      const setW = () => cards[n].offsetLeft - cards[0].offsetLeft;
+      const posFor = c => c.offsetLeft - (track.clientWidth - c.offsetWidth) / 2;
+      const centerOn = (c, smooth) => track.scrollTo({ left: posFor(c), behavior: smooth ? 'smooth' : 'auto' });
+
+      function paint() {
+        const mid = track.scrollLeft + track.clientWidth / 2;
+        const reach = step();
+        cards.forEach(c => {
+          const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid);
+          const t = Math.max(0, 1 - d / reach);
+          c.style.transform = 'scale(' + (1 + 0.12 * t).toFixed(3) + ')';
+          c.style.opacity = (0.45 + 0.55 * t).toFixed(3);
+        });
+      }
+
+      // When scrolling stops, silently jump a whole set so the row never runs out.
+      function wrap() {
+        const w = setW(), base = posFor(cards[first]);
+        let l = track.scrollLeft;
+        while (l < base - w / 2) l += w;
+        while (l >= base + w / 2) l -= w;
+        if (l !== track.scrollLeft) {
+          track.style.scrollSnapType = 'none';
+          track.scrollLeft = l;
+          requestAnimationFrame(() => { track.style.scrollSnapType = ''; paint(); });
         }
+      }
+
+      let timer;
+      track.addEventListener('scroll', () => {
+        requestAnimationFrame(paint);
+        clearTimeout(timer);
+        timer = setTimeout(wrap, 140);
+      }, { passive: true });
+
+      slider.querySelectorAll('[data-dir]').forEach(b => b.addEventListener('click', () =>
+        track.scrollBy({ left: step() * Number(b.dataset.dir), behavior: 'smooth' })));
+
+      // click a side card to bring it to the middle
+      track.addEventListener('click', e => {
+        const c = e.target.closest('.slide');
+        if (!c || e.target.closest('a')) return;
+        if (Math.abs(posFor(c) - track.scrollLeft) > 8) centerOn(c, true);
       });
 
-      document.querySelectorAll('nav a').forEach(link => {
-        link.style.color = '#e0e0e0';
-        if (link.getAttribute('href').slice(1) === current) {
-          link.style.color = '#d63384';
-        }
-      });
+      window.addEventListener('resize', () => { centerOn(cards[first], false); paint(); });
+      centerOn(cards[first], false);
+      paint();
     });
   </script>
 </body>
 </html>
-
-
-
